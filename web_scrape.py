@@ -6,7 +6,7 @@ import requests
 
 image_url1 = 'https://images-webcams.windy.com/64/1512053164/current/full/1512053164.jpg' #london eye
 image_url2 = 'https://images-webcams.windy.com/69/1512053169/current/full/1512053169.jpg' #westminster hall
-image_url3 = 'https://api.deckchair.com/v1/viewer/image/60bdd58beea25f000183056b' #shard west
+image_url3 = 'https://images-webcams.windy.com/54/1490712854/current/full/1490712854.jpg' #shard west
 image_url4 = 'https://images-webcams.windy.com/44/1222340244/current/full/1222340244.jpg' #park tower knightsbridge
 image_url5 = 'https://images-webcams.windy.com/08/1576526008/current/full/1576526008.jpg' #hilton park lane
 image_url6 = 'https://s3-eu-west-1.amazonaws.com/jamcams.tfl.gov.uk/00001.04502.jpg' #traffic westminister
