@@ -1,7 +1,7 @@
 # Scrape webcam hosting websites to extract images 
 # Arvind Govinday 06/2021
 
-from bs4 import BeautifulSoup 
+from bs4 import BeautifulSoup #not neccessary? 
 import requests 
 
 image_url1 = 'https://images-webcams.windy.com/64/1512053164/current/full/1512053164.jpg' #london eye
