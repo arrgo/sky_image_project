@@ -39,5 +39,5 @@ with open('traffic_westminister.jpg', 'wb') as handler:
     handler.write(img_data)
 
 img_data = requests.get(image_url7).content
-with open('traffic_parliamentsq', 'wb') as handler:
+with open('traffic_parliamentsq.jpg', 'wb') as handler:
     handler.write(img_data)
