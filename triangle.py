@@ -72,18 +72,18 @@ def get_A(v1, v2, v3):
     return A 
 
 if __name__ == "__main__":
-    p1 = (5319, 5944) #horiz y
-    p2 = (2113, 1940) #vert z
-    p3 = (1873, 5647) #diag x
+    p1 = (1861, 5577) #horiz y
+    p2 = (10355, 5659) #vert z
+    p3 = (1939, 1366) #diag x
     image = cv2.imread('london_eye.jpg')
-    image = cv2.copyMakeBorder(image, 5000, 1000, 1000, 5000, cv2.BORDER_CONSTANT)
+    image = cv2.copyMakeBorder(image, 5000, 1000, 1000, 9000, cv2.BORDER_CONSTANT)
     lex, ley = plot_triangle(image, p1, p2, p3, "london_eye.jpg")
 
-    p1 = (9051, 1122)
-    p2 = (1615, 12046)
-    p3 = (1760, 603)
+    p1 = (11262, 585)
+    p2 = (5116, 679)
+    p3 = (10995, 11735)
     image = cv2.imread("westminister.jpg")
-    image = cv2.copyMakeBorder(image, 100, 10000, 500, 10000, cv2.BORDER_CONSTANT)
+    image = cv2.copyMakeBorder(image, 100, 11000, 10000, 10000, cv2.BORDER_CONSTANT)
     wx, wy = plot_triangle(image, p1, p2, p3, "westminister.jpg")
 
     x_le = distance.euclidean((lex, ley), p3)
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     v2_w = [0, y_w, 0]
     v3_w = [0, 0, z_w]
     """
-    
+    """
     #London Eye Vanishing Points
     v1_le = [4319, 944, 1]
     v2_le = [1013,  -3060, 1]
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     print(np.linalg.cholesky(np.linalg.inv(W_le)))
     #K_le = np.linalg.inv(np.linalg.cholesky(W_le))
     #print(K_le)
-    
+    """
     """
     w_w= null_space(A_w)
     W_w = [ [w_w[0], 0, w_w[1]],
