@@ -94,62 +94,6 @@ if __name__ == "__main__":
     y_w = distance.euclidean((wx, wy), p1)
     z_w = distance.euclidean((wx, wy), p2)
 
-    """
-    #London Eye Vanishing Points
-    v1_le = [x_le, 0, 0]
-    v2_le = [0, y_le, 0]
-    v3_le = [0, 0, z_le]
-
-    #Westminister Vanishing Points
-    v1_w = [x_w, 0, 0]
-    v2_w = [0, y_w, 0]
-    v3_w = [0, 0, z_w]
-    """
-    """
-    #London Eye Vanishing Points
-    v1_le = [4319, 944, 1]
-    v2_le = [1013,  -3060, 1]
-    v3_le = [873, 647, 1]
-
-    #Westminister Vanishing Points
-    v1_w = [8551, 1022, 1]
-    v2_w = [1260, 503, 1]
-    v3_w = [1115, 11946, 1]
-
-    A_le = get_A(v1_le, v2_le, v3_le)
-    A_w = get_A(v1_w, v2_w, v3_w)
-
-    #w_le = null_space(A_le) #use SVD pick last row of VT
-    #W = [ w(1) 0 w(2);0 w(1) w(3);w(2) w(3) w(4)];
-    U, S, Vh = np.linalg.svd(A_le)
-    print(U)
-    print(S)
-    print(Vh)
-    w_le = Vh[3, :].T
-    
-
-    print(w_le)
-    print(null_space(A_le))
-    
-    W_le = [ [w_le[0], 0, w_le[1]],
-        [0, w_le[0], w_le[2]],
-        [w_le[1], w_le[2], w_le[3]] ]
-    W_le = np.matrix(W_le, dtype='float')
-    print(W_le)
-    print(np.linalg.inv(W_le))
-    print(np.linalg.cholesky(np.linalg.inv(W_le)))
-    #K_le = np.linalg.inv(np.linalg.cholesky(W_le))
-    #print(K_le)
-    """
-    """
-    w_w= null_space(A_w)
-    W_w = [ [w_w[0], 0, w_w[1]],
-        [0, w_w[0], w_w[2]],
-        [w_w[1], w_w[2], w_w[3]] ]
-    W_w = np.matrix(W_le, dtype='float')
-    K_w = np.linalg.inv(np.linalg.cholesky(W_le))
-
-    """
 
     
 
