@@ -12,38 +12,7 @@ import scipy.optimize
 import numpy.linalg as la
 import matplotlib.pyplot as plt
 
-def epipolar_correspondences(im1, im2, F, pts1):
-    # replace pass by your implementation
-    
-    pts2 = []
-    im2_x = np.shape(im2)[1]
-    
-    for point in pts1:
-        point = np.array([point])
-        x, y = point[0, 0], point[0, 1]
-        point = point.T   
-        point_homog = np.vstack((point, [1]))
-        lp = F @ point_homog
-        
-        window = (im1[y - 5 : y + 5, x - 5 : x + 5]).astype(float)
-        
-        min_dist = -1
-        cx, cy = 0, 0
-        for x2 in range(5, im2_x-6):
-            y2 = int((-1*lp[2,0] - lp[0,0]*x2)/lp[1,0])
 
-            window2 = (im2[y2 - 5 : y2 + 5, x2 - 5 : x2 + 5]).astype(float)
-
-            euc_dist = np.linalg.norm(window - window2)
-
-            if euc_dist < min_dist or min_dist == -1:
-                min_dist = euc_dist
-                cx, cy = x2, y2
-        pts2.append([cx, cy])
-
-    
-    pts2 = np.array(pts2)   
-    return pts2     
     
 
 def _epipoles(E):
@@ -192,9 +161,9 @@ def epipolarMatchGUI(I1, I2, F):
         ax2.plot([xs, xe], [ys, ye], linewidth=2)
 
         # draw points
-        pc = np.array([[xc, yc]])
+        """pc = np.array([[xc, yc]])
         p2 = epipolar_correspondences(I1, I2, F, pc)
-        ax2.plot(p2[0,0], p2[0,1], 'ro', MarkerSize=8, linewidth=2)
+        ax2.plot(p2[0,0], p2[0,1], 'ro', MarkerSize=8, linewidth=2)"""
         plt.draw()
 
 

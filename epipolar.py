@@ -7,8 +7,10 @@ import skimage.io as io
 
 #Code taken from https://docs.opencv.org/master/da/de9/tutorial_py_epipolar_geometry.html
 
-img1 = cv.imread('westminister.jpg',0)  #queryimage # left image
-img2 = cv.imread('london_eye.jpg',0) #trainimage # right image
+#img1 = cv.imread('hilton_pl.jpg',0)  #queryimage # left image
+#img2 = cv.imread('knightsbridge.jpg',0) #trainimage # right image
+img2 = cv.imread('london_eye.jpg',0)  #queryimage # left image
+img1 = cv.imread('westminister.jpg',0) #trainimage # right image
 sift = cv.SIFT_create()
 # find the keypoints and descriptors with SIFT
 kp1, des1 = sift.detectAndCompute(img1,None)
@@ -32,18 +34,29 @@ pts1 = np.int32(pts1)
 pts2 = np.int32(pts2)
 F, mask = cv.findFundamentalMat(pts1,pts2,cv.FM_LMEDS)
 
-im1 = io.imread('westminister.jpg')
-im2 = io.imread('london_eye.jpg')
-hlp.epipolarMatchGUI(im1, im2, F)
-
-"""
-# We select only inlier points
 pts1 = pts1[mask.ravel()==1]
 pts2 = pts2[mask.ravel()==1]
 
-pts1 = pts1[:10]
-pts2 = pts2[:10]
+F, mask = cv.findFundamentalMat(pts1,pts2,cv.FM_LMEDS)
+print(F)
 
+#im1 = io.imread('hilton_pl.jpg')
+#im2 = io.imread('knightsbridge.jpg')
+im2 = io.imread('london_eye.jpg')
+im1 = io.imread('westminister.jpg')
+hlp.epipolarMatchGUI(im1, im2, F)
+
+
+
+
+
+
+
+
+
+"""# We select only inlier points
+pts1 = pts1[mask.ravel()==1]
+pts2 = pts2[mask.ravel()==1]
 
 def drawlines(img1,img2,lines,pts1,pts2):
     ''' img1 - image on which we draw the epilines for the points in img2
@@ -72,5 +85,4 @@ lines2 = lines2.reshape(-1,3)
 img3,img4 = drawlines(img2,img1,lines2,pts2,pts1)
 plt.subplot(121),plt.imshow(img5)
 plt.subplot(122),plt.imshow(img3)
-plt.show()
-"""
+plt.show()"""

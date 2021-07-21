@@ -80,7 +80,8 @@ if __name__ == "__main__":
     lex, ley = plot_triangle(image, p1, p2, p3, "london_eye.jpg")
 
     p1 = (11262, 585)
-    p2 = (5116, 679)
+    #p2 = (5116, 679)
+    p2 = (5116, 600)
     p3 = (10995, 11735)
     image = cv2.imread("westminister.jpg")
     image = cv2.copyMakeBorder(image, 100, 11000, 10000, 10000, cv2.BORDER_CONSTANT)
