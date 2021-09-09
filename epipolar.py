@@ -7,10 +7,10 @@ import skimage.io as io
 
 #Code taken from https://docs.opencv.org/master/da/de9/tutorial_py_epipolar_geometry.html
 
-#img1 = cv.imread('hilton_pl.jpg',0)  #queryimage # left image
-#img2 = cv.imread('knightsbridge.jpg',0) #trainimage # right image
-img2 = cv.imread('london_eye.jpg',0)  #queryimage # left image
-img1 = cv.imread('westminister.jpg',0) #trainimage # right image
+img1 = cv.imread('hilton_pl.jpg',0)  #queryimage # left image
+img2 = cv.imread('knightsbridge.jpg',0) #trainimage # right image
+#img2 = cv.imread('london_eye.jpg',0)  #queryimage # left image
+#img1 = cv.imread('westminister.jpg',0) #trainimage # right image
 sift = cv.SIFT_create()
 # find the keypoints and descriptors with SIFT
 kp1, des1 = sift.detectAndCompute(img1,None)
@@ -40,14 +40,23 @@ pts2 = pts2[mask.ravel()==1]
 F, mask = cv.findFundamentalMat(pts1,pts2,cv.FM_LMEDS)
 print(F)
 
-#im1 = io.imread('hilton_pl.jpg')
-#im2 = io.imread('knightsbridge.jpg')
-im2 = io.imread('london_eye.jpg')
-im1 = io.imread('westminister.jpg')
+im1 = io.imread('hilton_pl.jpg')
+im2 = io.imread('knightsbridge.jpg')
+#im2 = io.imread('london_eye.jpg')
+#im1 = io.imread('westminister.jpg')
 hlp.epipolarMatchGUI(im1, im2, F)
 
 
 
+"""
+E = [[-2.6065E-3, 2.8598E-01, 3.624E-2], 
+    [1.488e-1, 2.286E-4, -1.662],
+    [3.54E-3, 1.687, 1.914E-3]]
+
+F = [[-1.128E-9, 1.1233E-7, -6.254E-6],
+[6.412E-8, 9.816E-11, -1.111E-3],
+[-1.316E-5, 1.069E-3, 4.479E-3]]
+"""
 
 
 

@@ -1,6 +1,7 @@
 import numpy as np
 from triangle import get_A
 
+"""
 #westmin
 v1 = (1262, 485, 1)
 #v2 = (-4884, 579, 1)
@@ -8,10 +9,9 @@ v2 = (-4884, 500, 1)
 v3 = (995, 11635, 1)
 
 #london eye
-"""v1 = (861, 577, 1)
+v1 = (861, 577, 1)
 v2 = (9355, 659, 1)
-v3 = (932, -3634, 1)"""
-
+v3 = (932, -3634, 1)
 
 
 A = get_A(v1, v2, v3)
@@ -25,6 +25,48 @@ W_le = np.matrix(W_le, dtype='float')
 chol = np.linalg.cholesky(W_le)
 inv = np.linalg.inv(chol)
 print((inv/inv[2, 2]).astype(int).T)
+"""
+
+E = [[-0.00151932,  0.03928261,  0.00275188],
+[ 0.02545672,  0.69272528, -0.71036584],
+[-0.03743761,  0.70817254,  0.1955514 ]]
+
+#from hw
+"""E = [[-2.607e-3, 2.860e-1, 3.624e-2],
+[1.488e-1, 2.286e-4, -1.666],
+[3.54e-3, 1.687, 1.914e-3]]"""
+
+W = [[0, -1, 0], 
+        [1, 0, 0],
+        [0, 0, 1]]
+
+Z = [[0, 1, 0], 
+        [-1, 0, 0],
+        [0, 0, 0]]
+
+
+U, S, Vh = np.linalg.svd(E)
+S = [0.8, 0.8, 0] #averaged out the singular values
+T = U @ W @ np.diag(S) @ U.T
+R = U @ np.linalg.inv(W) @ Vh
+
+print("singular values:")
+print(S)
+print("T and R")
+print(T)
+print(R)
+#print(T @ R)
+print("T using alternative formula: ")
+print(U @ Z @ U.T) #This also appears to work
+
+
+
+
+
+
+
+
+
 
 
 """
@@ -48,12 +90,10 @@ F Result (From epipolar)
  [-4.67083540e-05 -5.52880086e-05  1.00000000e+00]]
 
 ======================
-
-E = (K1.T) @ F @ (K2)
+E = (K1.T) @ F @ (K2) 
 [[-0.00151932,  0.03928261,  0.00275188],
 [ 0.02545672,  0.69272528, -0.71036584],
 [-0.03743761,  0.70817254,  0.1955514 ]]
-
 
 other one:
 [[-1.51931747e-03,  3.92826056e-02, -2.32277662e-03],

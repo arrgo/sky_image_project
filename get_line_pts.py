@@ -14,11 +14,11 @@ def click_event(event, x, y, flags, params):
         cv.imshow('image', img)
 
 if __name__ == "__main__":
-    img = cv.imread('london_eye.jpg')
+    img = cv.imread('hilton_pl.jpg')
     cv.imshow('image', img)
     cv.setMouseCallback('image', click_event)
     cv.waitKey(0)
     cv.destroyAllWindows()
     print(np.shape(points))
-    np.save('london_eye_horizontal', points)
+    np.save('hilton_pl_vertical', points)
 
